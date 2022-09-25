@@ -2,11 +2,15 @@ import packages.pack;
 import java.util.ArrayList;
 import java.util.List;
 
+//public container<T extends Number>
+//only allows input that are of family number
+
 class Container<T>{
     //customize type to what the user defines
     T value;
     
-    Container(T value){
+    //constructor ot the class
+    public Container(T value){
         this.value = value;
     }
 
