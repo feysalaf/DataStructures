@@ -7,7 +7,7 @@ class node<T>{
 
 public class linked_list<T> {
     node<Integer> head = new node<Integer>();
-
+    int list_length;
     public linked_list(){
         head.value = 0;
         head.next = null;
@@ -31,6 +31,7 @@ public class linked_list<T> {
     }
     
     public void create_list(int value){
+        this.list_length = value;
         for(int i=1; i<value;i++){
             this.add_node(i);
         }
@@ -39,7 +40,7 @@ public class linked_list<T> {
     public void print_list(){
         node<Integer> q = head;
         System.out.println("\nNode Address | Node Value | Node Next");
-        for(int i = 0; i<10; i++){
+        for(int i = 0; i<list_length; i++){
             System.out.print(q);
             System.out.println("       " + q.value + "       " + q.next);
             q = q.next;
@@ -53,7 +54,7 @@ class test{
     public static void main(String[] args){
         //create linked_list
         linked_list<Integer> list = new linked_list<>();
-        list.create_list(10);
+        list.create_list(20);
         list.print_list();
     }
 }
