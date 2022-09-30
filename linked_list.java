@@ -1,4 +1,3 @@
-import packages.pack;
 
 class node<T>{
     T value;
@@ -94,10 +93,65 @@ public class linked_list<T> {
         System.out.println("\nValue: " + value  + " added to end!");
     }
 
-    // boolean add_after_location(int v){
+    void add_after_loc(int value){
+        node<Integer> q = head;
+        while(true){
+            if(q.value == value){
+                node<Integer> p = new node<>();
+                p.value = 99;
+                p.next = q.next;
+                q.next = p;
+                break;
+            }
+            else{
+                q = q.next;
+            }
+        }
+        System.out.println("\nNode added after " + value);
 
-    // }
+    }
 
+    node<Integer> delete_at_start(){
+        node<Integer> q = head;
+        if(q != null){
+            head = q.next;
+            return q;
+        }
+        else{
+            return null;
+        }
+
+    }
+
+    node<Integer> delete_at_end(){
+        node<Integer> q = head;
+        while(true){
+            if(q.next.next == null){
+                node<Integer> p = new node<>();
+                p = q.next;
+                q.next = null;
+                return p;
+            }
+            else{
+                q = q.next;
+            }
+        }
+    }
+    
+    node<Integer> delete_at_value(int value){
+        node<Integer> q = head;
+        node<Integer> p = new node<>();
+        while(true){
+            if(q.next.value == value){
+                q.next = q.next.next;
+                p = q.next;
+                return p;
+            }
+            else{
+                q = q.next;
+            }
+        }
+    }
 
 
 
@@ -116,6 +170,14 @@ class test{
         list.add_at_start(100);
         list.print_list();
         list.add_at_end(200);
+        list.print_list();
+        list.add_after_loc(3);
+        list.print_list();
+        list.delete_at_start();
+        list.print_list();
+        list.delete_at_end();
+        list.print_list();
+        list.delete_at_value(6);
         list.print_list();
 
     }
